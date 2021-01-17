@@ -40,6 +40,7 @@ public class RealestateApp {
 
     private final int CALCULATE_AVERAGE_AREA = 5;
     private final int GET_SUM_OF_AREAS = 6;
+    private final int FIND_PROPERTIES_BY_LOT_NUMBER = 7;
     private final int EXIT = 9;
 
     /**
@@ -74,6 +75,7 @@ public class RealestateApp {
         System.out.println("4. Search properties by owner");
         System.out.println("5. Calculate average area");
         System.out.println("6. Calculate sum of areas");
+        System.out.println("7. Find all properties by lot number");
         //TODO: Add more menus
         System.out.println("9. Quit");
         System.out.println("\nPlease enter a number between 1 and 9.\n");
@@ -110,11 +112,11 @@ public class RealestateApp {
                     break;
                     
                 case FIND_PROPERTY_BY_ID:
-                    this.findRealestate();
+            this.findRealestate();
                     break;
                     
                 case FIND_PROPERTIES_BY_OWNER:
-                    this.findRealestateByOwner();
+                    this.findRealestatesByOwner();
                     break;
                     
                 case CALCULATE_AVERAGE_AREA:
@@ -123,6 +125,10 @@ public class RealestateApp {
 
                 case GET_SUM_OF_AREAS:
                     calculateSumOfAreas();
+                    break;
+
+                case FIND_PROPERTIES_BY_LOT_NUMBER:
+                    findRealestatesByLotNumber();
                     break;
                     
                 case EXIT:
@@ -295,9 +301,41 @@ public class RealestateApp {
     }
 
     /**
+     * Search  for all properties by a given lot number.
+     */
+    private void findRealestatesByLotNumber() {
+        Scanner reader = new Scanner(System.in);
+        Iterator<Property> propertiesFound;
+        int lotNumber = 0;
+        boolean userValidity = true;
+
+        System.out.println("Search for realestates by lot number.");
+        System.out.println();
+
+        System.out.println("Please enter lot number to search for.");
+        if (reader.hasNextInt()) {
+            lotNumber = reader.nextInt();
+        }
+        else {
+            userValidity = false;
+        }
+        if (userValidity) {
+            propertiesFound = properties.findAllPropertiesWithLotNumber(lotNumber);
+            System.out.println("Found properties:");
+            while(propertiesFound.hasNext()) {
+                displayProperty(propertiesFound.next());
+                System.out.println();
+            }
+
+        }
+
+
+    }
+
+    /**
      * Search for all the proerties owned by a given person/owner.
      */          
-    private void findRealestateByOwner() {
+    private void findRealestatesByOwner() {
         Scanner reader = new Scanner(System.in);
         Iterator<Property> propertiesFound;
 
