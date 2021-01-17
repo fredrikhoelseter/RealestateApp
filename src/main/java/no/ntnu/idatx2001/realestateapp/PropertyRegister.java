@@ -145,7 +145,7 @@ public class PropertyRegister {
      * 
      * @return the sum of the areas of all the properties, in square meters.
      */
-    private double getSumOfAreas()
+    public double getSumOfAreas()
     {
         double sumOfAreas = 0;
         for (Property property: this.properties.values())

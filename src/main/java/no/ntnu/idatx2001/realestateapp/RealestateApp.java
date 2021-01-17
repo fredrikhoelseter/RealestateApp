@@ -39,6 +39,7 @@ public class RealestateApp {
     private final int FIND_PROPERTIES_BY_OWNER = 4;
 
     private final int CALCULATE_AVERAGE_AREA = 5;
+    private final int GET_SUM_OF_AREAS = 6;
     private final int EXIT = 9;
 
     /**
@@ -72,6 +73,7 @@ public class RealestateApp {
         System.out.println("3. Search property by property ID");
         System.out.println("4. Search properties by owner");
         System.out.println("5. Calculate average area");
+        System.out.println("6. Calculate sum of areas");
         //TODO: Add more menus
         System.out.println("9. Quit");
         System.out.println("\nPlease enter a number between 1 and 9.\n");
@@ -118,6 +120,10 @@ public class RealestateApp {
                 case CALCULATE_AVERAGE_AREA:
                     this.calculateAverageRealestateArea();
                     break;
+
+                case GET_SUM_OF_AREAS:
+                    calculateSumOfAreas();
+                    break;
                     
                 case EXIT:
                     System.out.println("Thank you for using the Properties app!\n");
@@ -129,6 +135,10 @@ public class RealestateApp {
                     break;
             }
         }
+    }
+
+    public void calculateSumOfAreas() {
+        System.out.println("The sum of areas is " + properties.getSumOfAreas() + "m2.");
     }
 
   
