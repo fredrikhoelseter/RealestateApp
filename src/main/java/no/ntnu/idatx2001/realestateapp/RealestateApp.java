@@ -78,7 +78,7 @@ public class RealestateApp {
         System.out.println("7. Find all properties by lot number");
         //TODO: Add more menus
         System.out.println("9. Quit");
-        System.out.println("\nPlease enter a number between 1 and 9.\n");
+        System.out.println("\nPlease enter a number between 1 and 9!\n");
         Scanner sc = new Scanner(System.in);
 
         if (sc.hasNextInt()) {
@@ -112,7 +112,7 @@ public class RealestateApp {
                     break;
                     
                 case FIND_PROPERTY_BY_ID:
-            this.findRealestate();
+                    this.findRealestate();
                     break;
                     
                 case FIND_PROPERTIES_BY_OWNER:
